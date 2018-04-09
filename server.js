@@ -108,7 +108,7 @@ router.get('/garage/find/:id', function(req, res) {
 		// Get the documents collection
 		const collection = db.collection('garages');
 		// Find all documents
-		collection.find({ "_id": garageId }).toArray(function(err, docs) {
+		collection.find({ "_id": ObjectId("5acb725e734d1d55c31847e6") }).toArray(function(err, docs) {
 		    res.json({result: docs});
 		});
 	}
