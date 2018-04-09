@@ -80,7 +80,7 @@ router.get('/garage/find/:id', function(req, res) {
 	const garageId = req.params.id;
     const getDocuments = function(db, callback) {
 		// Get the documents collection
-		const collection = db.collection('garage');
+		const collection = db.collection('garages');
 		// Find all documents
 		collection.find({ _id: garageId }).toArray(function(err, docs) {
 		    res.json({result: docs});
