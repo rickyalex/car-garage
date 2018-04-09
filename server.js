@@ -1,6 +1,7 @@
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://ricky:mlab2017@ds255308.mlab.com:55308/lexadata";
 var express = require('express');
+var cors = require('cors');
 var app = express();
 var bodyParser = require('body-parser');
 
@@ -8,6 +9,9 @@ var bodyParser = require('body-parser');
 // this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+// set cross origin true
+app.use(cors({origin: true}));
 
 //make the server run at port 8080
 var port = process.env.PORT || 8080;
@@ -75,6 +79,28 @@ router.put('/car/edit/:id', function(req, res) {
 });
 
 //================================================//
+
+router.get('/garage/list', function(req, res) {
+    const getDocuments = function(db, callback) {
+		// Get the documents collection
+		const collection = db.collection('garages');
+		// Find all documents
+		collection.find({}).toArray(function(err, docs) {
+		    res.json({result: docs});
+		});
+	}
+
+	MongoClient.connect(url, function(err, client) {
+		if (err) throw err;
+	  
+		const db = client.db('lexadata');
+
+		getDocuments(db, function() {
+	    	client.close(); 
+		});
+	});
+
+});
 
 router.get('/garage/find/:id', function(req, res) {
 	const garageId = req.params.id;

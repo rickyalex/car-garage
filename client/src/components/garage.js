@@ -19,7 +19,7 @@ class Garage extends Component {
 
   componentDidMount(){
         //get the data as soon the page completes loading
-        axios.get('https://btctracker.herokuapp.com/api/search')
+        axios.get('https://car-garage.herokuapp.com/api/garage/list')
             .then((response) => {
                 this.setState({
                     //data: [...response.data.result, 'add']
@@ -35,23 +35,20 @@ class Garage extends Component {
     render() {
         const columns = [
         {
-          title: 'Ask',
-          dataIndex: 'Ask',
+          title: 'Name',
+          dataIndex: 'Name',
         }, {
-          title: 'Last',
-          dataIndex: 'Last',
+          title: 'Address',
+          dataIndex: 'Address',
         }, {
-          title: 'Bid',
-          dataIndex: 'Bid',
-        }, {
-          title: 'Time',
-          dataIndex: 'Time',
+          title: 'MaxCount',
+          dataIndex: 'MaxCount',
         }, {
           title: 'Action',
           dataIndex: 'Action',
           render: (text, record) => (
             <span>
-              <Link to={"garage/"+record._id}>Edit</Link>
+              <Link to={"garage/"+record._id}>Detail</Link>
             </span>
           )
         }];
