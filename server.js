@@ -103,12 +103,12 @@ router.get('/garage/list', function(req, res) {
 });
 
 router.get('/garage/find/:id', function(req, res) {
-	const garageId = String(req.params.id);
+	const garageId = req.params.id;
     const getDocuments = function(db, callback) {
 		// Get the documents collection
 		const collection = db.collection('garages');
 		// Find all documents
-		collection.findOne({ _id: "5acb725e734d1d55c31847e6" }).toArray(function(err, docs) {
+		collection.find({ _id: garageId }).toArray(function(err, docs) {
 		    res.json({result: docs});
 		});
 	}
