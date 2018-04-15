@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Route, Switch, HashRouter as Router } from 'react-router-dom';
 import App from './App';
+import Garages from './components/garages';
 import Garage from './components/garage';
-import GarageDetail from './components/garage_detail';
-import Car from './components/car';
+import GarageForm from './components/garage_form';
+import Cars from './components/cars';
+import CarForm from './components/car_form';
 import NotFound from './components/not_found';
 
 
@@ -13,16 +15,15 @@ class Routes extends Component {
         return (
             <div>
                 <Router>
-                    <div>
                         <Switch>
                             <Route exact path="/" component={App}/>
                             <Route path="/home" component={App} />
-                            <Route path="/garages" component={Garage} />
-                            <Route path="/garage/:id" component={GarageDetail} />
-                            <Route path="/car" component={Car} />
+                            <Route path="/garages" component={Garages} />
+                            <Route path="/garage" component={Garage} />
+                            <Route path="/cars" component={Cars} />
+                            <Route path="/car/edit/:id" component={CarForm} />
                             <Route component={NotFound} />
                         </Switch>
-                    </div>
                 </Router>
             </div>
         )

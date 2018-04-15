@@ -14,11 +14,11 @@ class PageSider extends Component {
             </div>
             <Menu theme="dark" mode="inline" >
               <Menu.Item key="1">
-                <Link to="/garages"><Icon type="user" />
+                <Link to="/garages"><Icon type="home" />
                 <span>Garages</span></Link>
               </Menu.Item>
               <Menu.Item key="2">
-                <Link to="/car"><Icon type="video-camera" />
+                <Link to="/cars"><Icon type="car" />
                 <span>Cars</span></Link>
               </Menu.Item>
             </Menu>
