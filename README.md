@@ -1,6 +1,6 @@
 Car & Garage
 
-A simple React & Redux App that connects to a private hosted MongoDB
+A simple React & Redux App that connects to a private hosted MongoDB. UI uses [**antd**](https://ant.design/)
 
 How to Install :
 1. clone ```https://github.com/rickyalex/car-garage.git```
